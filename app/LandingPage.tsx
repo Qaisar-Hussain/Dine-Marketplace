@@ -1,10 +1,13 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-
 export default function LandingPage() {
+  
   return (
     <div className="left flex flex-row justify-evenly">
+         
+      
       <div className="my-16">
         <div className="w-[8rem] flex justify-center items-center rounded-md h-[40px] bg-[#e1edff] text-[blue] my-12 font-semibold">Sale 70%</div>
         <h1 className="text-6xl my-2 font-semibold line-height-12">An Industrial Take On <br /> Streetwear</h1>
@@ -12,7 +15,7 @@ export default function LandingPage() {
           Anyone can beat you but no one can beat your outfit as long as <br /> you
           wear Dine outfits.
         </p>
-        <Link href="/all"> <button className="w-64 h-16 font-semibold flex flex-row justify-center my-12 border-2 bg-black text-white border-gray-400 items-center">
+        <Link href="/pages/all"> <button className="w-64 h-16 font-semibold flex flex-row justify-center my-12 border-2 bg-black text-white border-gray-400 items-center">
         <Image
             src="/white-shopping-cart-icon-png-8.jpg"
             alt="cart"

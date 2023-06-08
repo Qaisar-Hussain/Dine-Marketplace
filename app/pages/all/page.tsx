@@ -1,117 +1,86 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { getProjects } from "../../../sanity/sanity-utils";
+import { urlFor } from "../../../sanity/image";
+import Link from "next/link";
 
-export default function page() {
-  return (
-    <>
-      <div className="firstDiv images flex flex-row justify-evenly mt-16">
-        <div>
-          {" "}
-          <Image
-            className=" hover:w-[450px] hover:h-[500px] group-hover:border-black"
-            src="/product1.png"
-            width={250}
-            height={270}
-            alt="img"
-          ></Image>
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
-        <div>
-          <Image src="/p2.png"  width={250}
-            height={270} alt="img"></Image>{" "}
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
-        <div>
-          <Image src="/p3.png"  width={250}
-            height={270} alt="img"></Image>{" "}
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
+export const handleClick = (imageLink: string) => {
+  console.log(imageLink);
+  return imageLink;
+};
 
-        <div>
-          <Image src="/all4.png"  width={250}
-            height={270} alt="img"></Image>{" "}
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
-      </div>
+export default function Page() {
+  const [projects, setProjects] = useState<any[]>([]);
 
-      <div className="secondDiv images flex flex-row justify-evenly mt-16">
-        <div>
-          {" "}
-          <Image
-            className=" hover:w-[450px] hover:h-[500px] group-hover:border-black"
-            src="/all2-1.png"
-            width={250}
-            height={270}
-            alt="img"
-          ></Image>
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
-        <div>
-          <Image src="/all2-2.png"  width={250}
-            height={270} alt="img"></Image>{" "}
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
-        <div>
-          <Image src="/all2-3.png"  width={250}
-            height={270} alt="img"></Image>{" "}
-          <p className="mt-2">
-            {" "}
-            <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
-            </strong>
-          </p>
-        </div>
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-        <div>
-          <Image src="/all2-4.png"  width={250}
-            height={270} alt="img"></Image>{" "}
+  const fetchData = async () => {
+    const projectsData = await getProjects();
+    setProjects(projectsData);
+  };
+
+  const renderProjects = () => {
+    const rows: JSX.Element[] = [];
+    let row: JSX.Element[] = [];
+    for (let i = 0; i < projects.length; i++) {
+      const project = projects[i];
+      const imageUrl = urlFor(project.image).url();
+      const projectElement = (
+        <div
+          key={project._id}
+          className="imageWrapper "
+          onClick={() => handleClick(imageUrl)}
+        >
+          <Link
+            href={{
+              pathname: "/pages/addtocart",
+              query: {
+                search: imageUrl,
+                price: project.price,
+                name: project.name,
+                product_id: project.productId,
+              },
+            }}
+          >
+            <Image src={imageUrl} alt="img" width={250} height={270} />
+          </Link>
           <p className="mt-2">
-            {" "}
             <strong>
-              {" "}
-              Brushed Raglan Sweatshirt <br /> $195
+              {project.name}
+              <br />${project.price}
             </strong>
           </p>
         </div>
-      </div>
-    </>
-  );
+      );
+      if (i > 0 && i % 4 === 0) {
+        rows.push(
+          <div
+            key={`row-${i}`}
+            className="rowWrapper flex flex-row   justify-evenly mt-16 w-full"
+          >
+            {row}
+          </div>
+        );
+        row = [];
+      }
+      row.push(projectElement);
+    }
+
+    if (row.length > 0) {
+      rows.push(
+        <div
+          key={`row-${projects.length}`}
+          className="rowWrapper flex flex-row justify-evenly mt-16"
+        >
+          {row}
+        </div>
+      );
+    }
+    return rows;
+  };
+
+  return <div className=" w-full ">{renderProjects()}</div>;
 }

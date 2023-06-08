@@ -5,7 +5,7 @@ import React from 'react'
 export default function page() {
   return (<>
     <div className="firstDiv images flex flex-row justify-evenly mt-16">
-    <div>
+    <div onClick={()=>{console.log("clicked")}}>
       {" "}
       <Image
         className=" hover:w-[450px] hover:h-[500px] group-hover:border-black"

@@ -1,20 +1,41 @@
+"use client"
+import { Any } from "@sanity/client";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
+// import { handleClick } from "../all2/page";
 
-export default function page() {
+export default  function page({ searchParams }:any) {
+  const handleClick = (imageLink:string) => {
+    console.log(imageLink);
+    return imageLink
+  };
+  let urlOfImage = searchParams.search;
+  let priceOfProduct=searchParams.price;
+  let nameOfProduct = searchParams.name;
+  let productId = searchParams.product_id;
+  console.log(productId,priceOfProduct,nameOfProduct)
+  // console.log(searchParams.search)
   return (
     <>
     <div className="flex flex-row gap-4">
+   
       <div className="little flex items-end gap-4 flex-col w-[300px] ">
+        {/* <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
         <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
-        <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
-        <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
+        <Image src="/all2-1.png" alt="img" height={100} width={100}></Image> */}
       </div>
-      <div className="img   w-[900px]">
-        <Image src="/all2-1.png" alt="img" height={900} width={840}></Image>
+      <div 
+      // onClick={() => handleClick(urlOfImage)}
+      className="img   w-[900px]">
+        
+        <Image src={urlOfImage} alt="img" height={900} width={840}></Image>
+       
       </div>
       <div className="detail mt-12 w-[300px]  ">
-        <h1 className="font-bold text-2xl text-[#212121]">Cameryn Sash Tie Dress Dress</h1><br />
+        <h1 className="font-bold text-2xl text-[#212121]">{
+        nameOfProduct}</h1><br />
         <h3 className="font-semibold mt-12">SELECT SIZE</h3> <br />
         <button className="rounded-full mx-4 text-[#666666]">XS</button>
         <button className="rounded-full mx-4 text-[#666666]">S</button>
@@ -24,7 +45,18 @@ export default function page() {
         <br />
         <p className="mt-12 font-bold">Quantity: <button className="rounded-full bg-slate-400 border-red-100"> &nbsp;&nbsp;- &nbsp;&nbsp;</button> &nbsp; 1 &nbsp;
         <button className="rounded-full bg-slate-400 border-1 border-green-200"> &nbsp;&nbsp;+&nbsp;&nbsp; </button></p><br />
-        <button className="ml-6  px-8 py-1 border-2 bg-black text-white border-gray-400 ">Add to Cart</button>
+        <button className="ml-6  px-8 py-1 border-2 bg-black text-white border-gray-400 ">
+          <Link 
+           href={{
+            pathname:'/pages/',
+            query: {
+              search: urlOfImage,
+              price:priceOfProduct,
+              name:nameOfProduct,
+              id:productId
+            }
+          }}>
+          Add to Cart</Link></button>
       </div>
     </div>
     <div className="description  justify-center flex items-center">
