@@ -1,10 +1,10 @@
 "use client"
-import { Any } from "@sanity/client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-// import { handleClick } from "../all2/page";
+
 
 export default  function page({ searchParams }:any) {
   const handleClick = (imageLink:string) => {
