@@ -5,12 +5,17 @@ import { getProjects } from "../../../sanity/sanity-utils";
 import { urlFor } from "../../../sanity/image";
 import Link from "next/link";
 
-export const handleClick = (imageLink: string) => {
+// export const handleClick = (imageLink: string) => {
+//   console.log(imageLink);
+//   return imageLink;
+// };
+
+export default function Page() {
+
+   const handleClick = (imageLink: string) => {
   console.log(imageLink);
   return imageLink;
 };
-
-export default function Page() {
   const [projects, setProjects] = useState<any[]>([]);
 
   useEffect(() => {
@@ -84,3 +89,4 @@ export default function Page() {
 
   return <div className=" w-full ">{renderProjects()}</div>;
 }
+

@@ -2,7 +2,7 @@
 import { db } from "@vercel/postgres";
 import Image from "next/image";
 import React, { useState } from "react";
-import { myAction } from "../../serveraction/page";
+import { myAction } from "../../serveraction/action";
 
 export default async function Page({ searchParams }: any) 
  {

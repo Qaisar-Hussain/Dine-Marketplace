@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 
@@ -34,10 +35,10 @@ export default function Promotions() {
         </div>
         <div className="right w-[650px] h-96 flex justify-center">
           <div className="mx-2 bg-[#efe1c7]">
-            <p className="m-4">
+            <h2 className="m-4">
               Flex Sweatshirt <br />
              <p><s>$100.00</s> <strong>$75.00</strong> </p> 
-            </p>
+            </h2>
             <Image
               className="bg-[#efe1c7]"
               src="/event4.webp"

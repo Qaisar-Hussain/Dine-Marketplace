@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Image from "next/image";
 import React from "react";
-import { myAction } from "../../serveraction/page";
+import { myAction } from "../../serveraction/action";
 import toast, { Toaster } from 'react-hot-toast';
 export default async function Page({ searchParams }: any) {
   let urlOfImage = searchParams.search;
