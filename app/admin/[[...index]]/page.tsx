@@ -8,7 +8,7 @@ import config from '../../../sanity.config'
 export default function page() {
   return <>
   <NextStudio config={config}/>  
-  <div>hello</div>
+  
   </>
     
   
