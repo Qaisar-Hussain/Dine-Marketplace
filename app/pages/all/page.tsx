@@ -36,10 +36,11 @@ export default function Page() {
       const projectElement = (
         <div
           key={project._id}
-          className="imageWrapper "
+          className="imageWrapper max-lg:flex  max-sm:w-full max-lg:flex-col  max-lg:justify-center max-lg:mt-4 "
           onClick={() => handleClick(imageUrl)}
         >
           <Link
+          className=" max-sm:w-full max-lg:flex max-lg:justify-center"
             href={{
               pathname: "/pages/addtocart",
               query: {
@@ -50,9 +51,9 @@ export default function Page() {
               },
             }}
           >
-            <Image src={imageUrl} alt="img" width={250} height={270} />
+            <Image src={imageUrl} alt="img" width={250} height={270}  className="sm:max-lg:w-[400px] sm:max-lg:h-[430px]" />
           </Link>
-          <p className="mt-2">
+          <p className="mt-2 max-lg:flex max-lg:justify-center">
             <strong>
               {project.name}
               <br />${project.price}
@@ -64,7 +65,7 @@ export default function Page() {
         rows.push(
           <div
             key={`row-${i}`}
-            className="rowWrapper flex flex-row   justify-evenly mt-16 w-full"
+            className="rowWrapper flex flex-row max-lg:border-3  max-lg:flex-col max-lg:justify-center justify-evenly mt-16 w-full"
           >
             {row}
           </div>
@@ -78,7 +79,7 @@ export default function Page() {
       rows.push(
         <div
           key={`row-${projects.length}`}
-          className="rowWrapper flex flex-row justify-evenly mt-16"
+          className="rowWrapper flex flex-row justify-evenly mt-16 max-lg:flex-col max-lg:item-center"
         >
           {row}
         </div>
@@ -87,6 +88,6 @@ export default function Page() {
     return rows;
   };
 
-  return <div className=" w-full ">{renderProjects()}</div>;
+  return <div className=" w-full max-sm:w-[100%] ">{renderProjects()}</div>;
 }
 

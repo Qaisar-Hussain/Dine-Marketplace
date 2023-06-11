@@ -13,8 +13,8 @@ export default function Promotions() {
           Our Promotion Events
         </h1>
       </div>
-      <div className="flex space-x-4 my-6 justify-center">
-        <div className="left w-[800px]">
+      <div className="flex space-x-4 my-6 justify-center  max-2xl:bg-gray-200 ">
+        <div className="left w-[800px]  2xl:w-bg-gray-200 ">
           <div className="flex h-[220px] flex-row justify-between bg-[#d6d6d8]">
             <div className="ml-6   flex flex-col justify-center items-center ">
               <h1 className="text-3xl font-bold">GET UP TO 60% </h1>
