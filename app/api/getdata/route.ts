@@ -1,3 +1,4 @@
+ 
 // import { db } from '@vercel/postgres';
 // import { NextApiRequest, NextApiResponse } from 'next';
 // import {NextResponse} from "next/server" 
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   // await client.sql`INSERT INTO cart (user_id, product_id ,quantity) VALUES (${userId}, ${productId},${quantity});`;
 
-  // const cart = await client.sql`SELECT * FROM cart;`;
+  const cart = await client.sql`SELECT * FROM cart;`;
   const result = await client.sql`
   SELECT *
   FROM cart

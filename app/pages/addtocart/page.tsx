@@ -1,22 +1,47 @@
 "use client";
-
-import { useState, useTransition } from "react";
+// useTransition
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import React from "react";
 import { myAction } from "../../serveraction/action";
 import toast, { Toaster } from 'react-hot-toast';
-export default async function Page({ searchParams }: any) {
+import { useGlobalContext } from "../../context/store";
+
+
+export default function Page({ searchParams }: any) {
+  const { userId, setUserId, data, setData } = useGlobalContext();
+  
+  // const handleAddToCart2 = async () => {
+  //   setUserId(userId => userId + 1);
+  // };
+
+  // useEffect(() => {
+  //   handleAddToCart();
+  // }, []);
+    // let countItem = setUserId(userId+1);
+  //   setData([
+  //     { firstName: 'Tim' }, 
+  //     { firstName: 'Kyle' }, 
+  //     { firstName: 'Michael' }
+  //   ]);
+  // }, [])
+  let count = 0;
+  
+  
   let urlOfImage = searchParams.search;
   let nameOfProduct = searchParams.name;
   let priceOfProduct = searchParams.price;
   let idOfProduct = searchParams.product_id;
   const notify = () => toast.success('Added To Cart Successfully.');
-  async function handleAddtoCart() {
+ 
+
+  
+   const handleAddToCart = async ()=>{
+  
     fetchData();
     notify();
+    // console.log(setUserId(userId+1))
   
-
-
     async function fetchData() {
       const user_id = await myAction();
       const res = await fetch("/api/testreq", {
@@ -33,29 +58,32 @@ export default async function Page({ searchParams }: any) {
         },
       });
       const result = await res.json();
+      let count = setUserId(userId => userId + 1);
+      //  setUserId(count)
+       console.log(count)
+      // console.log(result.length);
       console.log(result);
     }
+    console.log("clicked2")
   }
-  const [count, setCount] = useState(1);
-  let increment = () => {
-    setCount(count + 1);
-  };
-  let decrement = () => {
-    if (count >= 1) setCount(count - 1);
-  };
+
+  // useEffect(() => {
+  //   handleAddToCart();
+  // }, []);
+  
   return (
     <>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-4  max-lg:justify-items-center max-lg:flex-col border-2 border-black">
       <Toaster />
-        <div className="little flex items-end gap-4 flex-col w-[300px] ">
+        <div className="max-lg:flex-col max-lg:items-center little flex items-end gap-4 flex-col w-[300px] max-lg:w-full max-lg:bg-black ">
           {/* <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
           <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
           <Image src="/all2-1.png" alt="img" height={100} width={100}></Image> */}
         </div>
-        <div className="img   w-[900px]">
+        <div className="img w-[900px] max-lg:w-full max-lg:flex max-lg:flex-col max-lg:items-center">
           <Image src={urlOfImage} alt="img" height={900} width={840}></Image>
         </div>
-        <div className="detail mt-12 w-[300px]  ">
+        <div className="detail mt-12 w-[300px]  max-lg:w-full max-lg:flex max-lg:flex-col max-lg:items-center">
           <h1 className="font-bold text-2xl text-[#212121]">{nameOfProduct}</h1>
           <br />
           <h3 className="font-semibold mt-12">SELECT SIZE</h3> <br />
@@ -68,15 +96,15 @@ export default async function Page({ searchParams }: any) {
           <p className="mt-12 font-bold">
             Quantity:
             <button
-              onClick={decrement}
+              // onClick={decrement}
               className="rounded-full bg-slate-400 border-red-100"
             >
               
               &nbsp;&nbsp;- &nbsp;&nbsp;
             </button>
-            &nbsp; 1 &nbsp;
+            &nbsp; {count} &nbsp;
             <button
-              onClick={increment}
+              // onClick={increment}
               className="rounded-full bg-slate-400 border-1 border-green-200"
             >
              
@@ -85,7 +113,7 @@ export default async function Page({ searchParams }: any) {
           </p>
           <br />
           <button
-            onClick={handleAddtoCart}
+            onClick={handleAddToCart}
             className="ml-6  px-8 py-1 border-2 bg-black text-white border-gray-400 "
           >
             Add to Cart

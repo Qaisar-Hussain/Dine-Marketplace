@@ -6,7 +6,7 @@ import React from "react";
 export default function Products() {
   return (
     <>
-      <div className="flex justify-center text-[blue] mt-24 font-semibold">
+      <div className="flex justify-center text-[blue] mt-24 font-semibold max-md:mt-80">
         PROMOTIONS
       </div>
       <div className="flex justify-center ">
@@ -58,11 +58,11 @@ export default function Products() {
           Unique and Authentic <br /> Vintage Designer Jewellery
         </h1>
       </div>
-      <div className="flex bg-[#fbfcff] flex-row justify-center gap-x-4 ml-12">
-        <div className="l border-black flex flex-col mt-36">
-          <div className="top flex flex-row justify-around w-[800px]">
-            <div className="top1">
-              <strong className=""> Using Good Quality Materials</strong>
+      <div className="flex bg-[#fbfcff] flex-row justify-center gap-x-4 ml-12 max-lg:flex-col">
+        <div className="l border-black flex flex-col mt-36 ">
+          <div className="top flex flex-row justify-around w-[800px] max-md:flex max-md:flex-col">
+            <div className="top1 max-md:flex max-md:flex-col max-md:justify-center">
+              <h3 className="font-bold"> Using Good Quality Materials</h3>
               <br />
               <p className="text-justify mt-4">
                 Lorem ipsum dolor sit amt,
@@ -70,7 +70,7 @@ export default function Products() {
               </p>
             </div>
             <div className="top2">
-              <strong className="">100% Handmade Products</strong>
+              <h3 className="font-bold">100% Handmade Products</h3>
               <br />
               <p className="text-justify mt-4">
                 Lorem ipsum dolor sit amt,
@@ -78,7 +78,7 @@ export default function Products() {
               </p>
             </div>
           </div>
-          <div className="flex flex-row justify-around w-[800px] mt-20">
+          <div className="flex flex-row justify-around w-[800px] mt-20 max-md:flex max-md:flex-col">
             <div className="l1">
               <strong className=""> Using Good Quality Materials</strong>
               <br />
@@ -97,7 +97,7 @@ export default function Products() {
             </div>
           </div>
         </div>
-        <div className="r mt-12 w-1/2 flex flex-row justify-center items-center">
+        <div className="r mt-12 w-1/2 flex flex-row justify-center items-center  max-lg:w-full max-md:flex max-md:flex-col">
           <Image src="/feature.webp" alt="img" width={340} height={400}></Image>
           <div className="flex flex-col justify-center ml-8">
             <p className="text-justify ">
