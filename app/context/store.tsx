@@ -15,7 +15,8 @@ interface ContextProps {
     priceOfAllItems:number,
     setPriceOfAllItems:Dispatch<SetStateAction<number>>,
     cartItems:any[],
-    setCartItems:Dispatch<SetStateAction<number>>
+    setCartItems:Dispatch<SetStateAction<any[]>>
+    // setCartItems:Dispatch<SetStateAction<number>>
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -36,7 +37,7 @@ export const GlobalContextProvider = ({ children }:any) => {
     const [cartCount, setCartCount] = useState(0);
     const [data, setData] = useState<[] | DataType[]>([]);
     const [priceOfAllItems, setPriceOfAllItems ] = useState(0)
-    const [cartItems,setCartItems] = useState<[]>([])
+    const [cartItems,setCartItems] = useState<any[]>([])
     return (
         <GlobalContext.Provider value={{ cartCount, setCartCount, data, setData, priceOfAllItems, setPriceOfAllItems, cartItems, setCartItems }}>
             {children}

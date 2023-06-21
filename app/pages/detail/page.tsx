@@ -25,26 +25,27 @@ import { useGlobalContext } from "../../context/store";
   export default function Detail(){
 
  
-  const { userId, setUserId, data, setData } = useGlobalContext();
-  const handleClick = () => {
-    setUserId(userId+1);
-  };
-  useEffect(() => {
-    setUserId(0);
-    setData([
-      { firstName: 'Tim' }, 
-      { firstName: 'Kyle' }, 
-      { firstName: 'Michael' }
-    ]);
-  }, [])
+  // const { userId, setUserId, data, setData } = useGlobalContext();
+  // const handleClick = () => {
+  //   setUserId(userId+1);
+  // };
+  // useEffect(() => {
+  //   setUserId(0);
+  //   setData([
+  //     { firstName: 'Tim' }, 
+  //     { firstName: 'Kyle' }, 
+  //     { firstName: 'Michael' }
+  //   ]);
+  // }, [])
   return (
-    <div 
+    <div>hhh</div>
+    // <div 
     // className={styles.container}
-    >
-      <p>{userId}</p>
-      <button onClick={handleClick}>increment</button>
-      <p>List:</p>
-      {data.map((e, i) => <p key={i}>{e.firstName}</p>)}
-    </div>
+    // >
+    //   {/* <p>{userId}</p>
+    //   <button onClick={handleClick}>increment</button>
+    //   <p>List:</p>
+    //   {data.map((e, i) => <p key={i}>{e.firstName}</p>)}
+    // </div> */}
   )
 }
