@@ -44,7 +44,7 @@
     "next-sanity-image": "^6.0.0",
     "nookies": "^2.5.2",
     "postcss": "8.4.23",
-    "react": "17.0.2",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-is": "^18",
