@@ -12,7 +12,7 @@ function classNames(...classes: any) {
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { userId, setUserId, data, setData } = useGlobalContext();
+  const { cartCount, setCartCount, data, setData } = useGlobalContext();
 
   return (
     <header className="bg-white mb-20">
@@ -57,7 +57,7 @@ export default function Example() {
             </Transition>
           </Popover>
           <ul className="flex flex-row justify-around -ml-4">
-            <li className="mx-6 font-normal">
+            {/* <li className="mx-6 font-normal">
               <Link href="pages/all">All Products</Link>
             </li>
             <li className="mx-6 font-normal">
@@ -65,7 +65,7 @@ export default function Example() {
             </li>
             <li className="mx-6 font-normal">
               <Link href="pages/all">Functionality</Link>
-            </li>
+            </li> */}
             <li className="mx-6 font-normal">
               <Link href="pages/female">Female</Link>
             </li>
@@ -79,10 +79,14 @@ export default function Example() {
               <Link href="pages/all">All Products</Link>
             </li>
           </ul>
+         <form className="ml-24">
+  <input type="search" placeholder=" Search a product..." className="border-2  border-gray-300 "/>
+ 
+</form>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
           <Link href="pages/cart">
-          <div className="count text-white-600 rounded-full w-[30px] h-[30px] bg-red-500 opacity-90 z-40 flex justify-center items-center ml-4">{userId}</div>
+          <div className="count text-white-600 rounded-full w-[30px] h-[30px] bg-red-500 opacity-90 z-40 flex justify-center items-center ml-4"> {cartCount}</div>
             <Image
               src="/cart.jpeg"
               alt="cart"
@@ -162,7 +166,7 @@ export default function Example() {
                   href="pages/cart"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                   <div className="count text-white-600 rounded-full w-[30px] h-[30px] bg-red-500 opacity-90 z-40 flex justify-center items-center ml-4">{userId}</div>
+                   <div className="count text-white-600 rounded-full w-[30px] h-[30px] bg-red-500 opacity-90 z-40 flex justify-center items-center ml-4"> {cartCount}</div>
                   <Image
                     src="/cart.jpeg"
                     alt="cart"

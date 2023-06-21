@@ -35,6 +35,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
   return NextResponse.json(
     result.rows
+    // "response of api"
    
   );
 }

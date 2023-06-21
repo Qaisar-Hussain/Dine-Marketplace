@@ -8,26 +8,37 @@ type DataType = {
 }
 
 interface ContextProps {
-    userId: number,
-    setUserId: Dispatch<SetStateAction<number>>,
+    cartCount: number,
+    setCartCount: Dispatch<SetStateAction<number>>,
     data: DataType[],
     setData: Dispatch<SetStateAction<DataType[]>>
+    priceOfAllItems:number,
+    setPriceOfAllItems:Dispatch<SetStateAction<number>>,
+    cartItems:any[],
+    setCartItems:Dispatch<SetStateAction<number>>
 }
 
 const GlobalContext = createContext<ContextProps>({
-    userId:0,
-    setUserId: (): number => 1 ,
+    cartCount:0,
+    setCartCount: (): number => 1 ,
     // setUserId: (): string => '',
     data: [],
-    setData: (): DataType[] => [] 
+    setData: (): DataType[] => [] ,
+    priceOfAllItems:0,
+    setPriceOfAllItems: (): number => 1,
+    cartItems:[],
+    setCartItems:():any[]=>[]
+
+
 })
 
-export const GlobalContextProvider = ({ children }) => {
-    const [userId, setUserId] = useState(0);
+export const GlobalContextProvider = ({ children }:any) => {
+    const [cartCount, setCartCount] = useState(0);
     const [data, setData] = useState<[] | DataType[]>([]);
-    
+    const [priceOfAllItems, setPriceOfAllItems ] = useState(0)
+    const [cartItems,setCartItems] = useState<[]>([])
     return (
-        <GlobalContext.Provider value={{ userId, setUserId, data, setData }}>
+        <GlobalContext.Provider value={{ cartCount, setCartCount, data, setData, priceOfAllItems, setPriceOfAllItems, cartItems, setCartItems }}>
             {children}
         </GlobalContext.Provider>
     )

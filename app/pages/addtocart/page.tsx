@@ -9,7 +9,7 @@ import { useGlobalContext } from "../../context/store";
 
 
 export default function Page({ searchParams }: any) {
-  const { userId, setUserId, data, setData } = useGlobalContext();
+  const { cartCount, setCartCount, data, setData,priceOfAllItems, setPriceOfAllItems } = useGlobalContext();
   
   // const handleAddToCart2 = async () => {
   //   setUserId(userId => userId + 1);
@@ -51,6 +51,7 @@ export default function Page({ searchParams }: any) {
           userId: user_id.value,
           productPrice: priceOfProduct,
           productName: nameOfProduct,
+        ImageUrl:urlOfImage,
           quantity: 1,
         }),
         headers: {
@@ -58,13 +59,20 @@ export default function Page({ searchParams }: any) {
         },
       });
       const result = await res.json();
-      let count = setUserId(userId => userId + 1);
-      //  setUserId(count)
-       console.log(count)
+      // let count = result.legth
+      // let count = 
+      setCartCount(cartCount => cartCount + 1);
+      console.log(priceOfAllItems,"before updating state")
+      // setPriceOfAllItems(priceOfAllItems => priceOfAllItems+Number(priceOfProduct) )
+      // setCartCount(count   
+      console.log(cartCount)
+       console.log(priceOfAllItems,"addtocart after updating state")
       // console.log(result.length);
-      console.log(result);
+      // console.log(result,user_id.value,"LLLLL");
+      // console.log(user_id.value,"LLLLL")
     }
     console.log("clicked2")
+    // setPriceOfAllItems(priceOfAllItems)
   }
 
   // useEffect(() => {

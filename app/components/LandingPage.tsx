@@ -8,8 +8,8 @@ export default function LandingPage() {
   // const { name, age } = useContext(MyContext);
 
   return (
-    <div className="left flex flex-row justify-evenly max-md:flex max-md:flex-col ">
-      <div className=" max-md:ml-6">
+    <div className="left flex flex-row justify-evenly max-md:flex max-md:flex-col  ">
+      <div className=" max-md:ml-6 max-lg:ml-6">
         <div className="w-[8rem] flex justify-center items-center rounded-md h-[40px] bg-[#e1edff] text-[blue] my-12 font-semibold">
           Sale 70%  
         </div>
@@ -33,7 +33,7 @@ export default function LandingPage() {
             &nbsp;&nbsp;Start Shopping
           </button>
         </Link>
-        <div className="my-24 flex flex-row justify-between flex-wrap ">
+        <div className="my-24 flex flex-row justify-between  flex-wrap  max-lg:justify-around ">
           <div>
             <Image src="/fst.webp" alt="img" width={100} height={100}></Image>
           </div>
@@ -58,7 +58,7 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="max-md:w-full  ">
+      <div className="max-md:w-full  max-lg:h-[30rem] ">
         <Image
           src="/header.webp"
           alt="img"
