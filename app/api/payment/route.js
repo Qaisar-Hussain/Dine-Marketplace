@@ -27,8 +27,8 @@ export async function POST (request){
             }
         ],
         mode:'payment',
-        success_url: 'http://localhost:3000',
-        cancel_url: 'http://localhost:3000'
+        success_url: 'https://dine-marketplace.vercel.app/pages/success',
+        cancel_url: 'https://dine-marketplace.vercel.app/pages/cancel'
     })
     // session.url
     return NextResponse.json(session.url)
