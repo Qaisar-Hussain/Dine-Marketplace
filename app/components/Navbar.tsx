@@ -57,15 +57,7 @@ export default function Example() {
             </Transition>
           </Popover>
           <ul className="flex flex-row justify-around -ml-4">
-            {/* <li className="mx-6 font-normal">
-              <Link href="pages/all">All Products</Link>
-            </li>
-            <li className="mx-6 font-normal">
-              <Link href="pages/all">Has Full</Link>
-            </li>
-            <li className="mx-6 font-normal">
-              <Link href="pages/all">Functionality</Link>
-            </li> */}
+           
             <li className="mx-6 font-normal">
               <Link href="pages/female">Female</Link>
             </li>

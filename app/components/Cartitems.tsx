@@ -1,31 +1,26 @@
 import Image from 'next/image';
-// import { useRouter } from 'next/router';
+
 import React, { useEffect, useState } from 'react'
 import { useGlobalContext } from '../context/store';
 
 
 
 export default function Cartitems() {
-  // const router = useRouter();
+  
     const { cartCount, setCartCount, data, setData,priceOfAllItems, setPriceOfAllItems,cartItems, setCartItems} = useGlobalContext();
-    // const [cartItems, setCartItems] = useState([]);
-    // console.log(cartItems,"hhhh")
+
     
     let priceOfItems:number=0;
    
     const allCartItems:any =  cartItems.map((item: any, index) => {
 
         priceOfItems += Number(item.price);
-        // priceOfItems += item.price;
-        // console.log( priceOfItems, "hghh")
-        // console.log(priceOfItems,"lll")
-        // console.log(index, item, item.price)
-        // console.log(item)
+       
         if (index === 0) {
           return (
             <React.Fragment key={index}>
               <div
-                className="l w-1/2 mx-8 my-2 border-2 flex border-black place-content-between"
+                className="l w-1/2 mx-8 my-2 border-2 flex  place-content-between"
                 
               >
                 <div className="image flex">
@@ -82,7 +77,7 @@ export default function Cartitems() {
           return (
             <React.Fragment key={index}>
               <div
-                className="l w-1/2 mx-8 my-2 border-2 flex border-black place-content-between"
+                className="l w-1/2 mx-8 my-2 border-2 flex place-content-between"
                 
               >
                 <div className="image flex">
@@ -138,11 +133,7 @@ export default function Cartitems() {
         }
     
       });
-      // setCartItems(allCartItems)
-      // useEffect(()=>{
-      //   setPriceOfAllItems(priceOfItems)
-
-      // },[])
+      
       const deleteItemFromCart = async (index: number, cartItems: any[]) => {
         const deletedItem = cartItems[index]; 
         const res = await fetch("/api/deleteCartItems", {
@@ -161,11 +152,7 @@ export default function Cartitems() {
         console.log(priceOfItems)
         console.log(priceOfAllItems,"all global")
         window.location.reload();
-        // router.reload();
-
-        // setCartItems(result)
-        // allCartItems
-        // console.log("Deleted item at index:", index, deletedItem);
+       
       };
 
 

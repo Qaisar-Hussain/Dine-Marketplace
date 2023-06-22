@@ -5,7 +5,7 @@ import React from "react";
 export default function Promotions() {
   return (
     <><div className="max-md:mt-80 max-md:bg-black ">
-      <div className="bg-black flex justify-center text-[blue] my-6 font-semibold ">
+      <div className=" flex justify-center text-[blue] my-6 font-semibold ">
         PROMOTIONS
       </div>
       <div className="flex justify-center ">

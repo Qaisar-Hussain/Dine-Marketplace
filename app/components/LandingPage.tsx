@@ -2,10 +2,10 @@
 import Image from "next/image";
 import React, { useContext } from "react";
 import Link from "next/link";
-// import MyContext from "../../context/MyContext";
+
 
 export default function LandingPage() {
-  // const { name, age } = useContext(MyContext);
+  
 
   return (
     <div className="left flex flex-row justify-evenly max-md:flex max-md:flex-col  ">

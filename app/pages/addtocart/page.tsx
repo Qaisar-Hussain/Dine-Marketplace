@@ -11,20 +11,7 @@ import { useGlobalContext } from "../../context/store";
 export default function Page({ searchParams }: any) {
   const { cartCount, setCartCount, data, setData,priceOfAllItems, setPriceOfAllItems } = useGlobalContext();
   
-  // const handleAddToCart2 = async () => {
-  //   setUserId(userId => userId + 1);
-  // };
-
-  // useEffect(() => {
-  //   handleAddToCart();
-  // }, []);
-    // let countItem = setUserId(userId+1);
-  //   setData([
-  //     { firstName: 'Tim' }, 
-  //     { firstName: 'Kyle' }, 
-  //     { firstName: 'Michael' }
-  //   ]);
-  // }, [])
+ 
   let count = 0;
   
   
@@ -40,7 +27,7 @@ export default function Page({ searchParams }: any) {
   
     fetchData();
     notify();
-    // console.log(setUserId(userId+1))
+    
   
     async function fetchData() {
       const user_id = await myAction();
@@ -59,29 +46,23 @@ export default function Page({ searchParams }: any) {
         },
       });
       const result = await res.json();
-      // let count = result.legth
-      // let count = 
+      
       setCartCount(cartCount => cartCount + 1);
       console.log(priceOfAllItems,"before updating state")
-      // setPriceOfAllItems(priceOfAllItems => priceOfAllItems+Number(priceOfProduct) )
-      // setCartCount(count   
+      
       console.log(cartCount)
        console.log(priceOfAllItems,"addtocart after updating state")
-      // console.log(result.length);
-      // console.log(result,user_id.value,"LLLLL");
-      // console.log(user_id.value,"LLLLL")
+      
     }
     console.log("clicked2")
-    // setPriceOfAllItems(priceOfAllItems)
+  
   }
 
-  // useEffect(() => {
-  //   handleAddToCart();
-  // }, []);
+  
   
   return (
     <>
-      <div className="flex flex-row gap-4  max-lg:justify-items-center max-lg:flex-col border-2 border-black">
+      <div className="flex flex-row gap-4  max-lg:justify-items-center max-lg:flex-col ">
       <Toaster />
         <div className="max-lg:flex-col max-lg:items-center little flex items-end gap-4 flex-col w-[300px] max-lg:w-full max-lg:bg-black ">
           {/* <Image src="/all2-1.png" alt="img" height={100} width={100}></Image>
