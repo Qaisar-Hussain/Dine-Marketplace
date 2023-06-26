@@ -89,19 +89,19 @@ export default function Page({ searchParams }: any) {
 
   return (
     <>
-      <h1 className="font-bold text-2xl mt-24 ml-56">Shopping Cart</h1>
+      <h1 className="font-bold text-2xl mt-24 ml-56 max-md:ml-12">Shopping Cart</h1>
    
       <div className="justify-center flex items-center">
-        <div className="w-4/5 flex  place-content-between mt-8">
-          <div className="w-4/5 flex flex-col place-content-between mt-8">
+        <div className="w-4/5 flex  place-content-between mt-8 max-md:flex-col-reverse max-md:w-full">
+          <div className="w-4/5 flex flex-col place-content-between mt-8 max-md:flex-col max-md:w-full">
          <Cartitems  />
           </div>
-          <div className="right mx-8 w-1/4 bg-[#fbfcff] flex justify-center border-2  max-h-80 ">
+          <div className="right mx-8 w-1/4 bg-[#fbfcff] flex justify-center border-2  max-h-80  max-md:w-full max-md:ml-0 max-md:mx-0 max-md:pb-6">
             <div>
               <h1 className="text-xl font-bold mt-6 ">ORDER SUMMERY</h1>
               <div className="flex flex-center mt-4">
                 <h2 className="mt-4"> Product Quantity </h2>
-                <h2 className="ml-8 mt-4">  Product </h2>
+                <h2 className="ml-8 mt-4">{cartCount}  Product </h2>
               </div>
               <div className="flex place-content-between mt-4">
                 <h2 className=" mt-4">Sub total</h2>
