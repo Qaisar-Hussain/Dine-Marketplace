@@ -58,9 +58,9 @@ export default function Products() {
           Unique and Authentic <br /> Vintage Designer Jewellery
         </h1>
       </div>
-      <div className="flex bg-[#fbfcff] flex-row justify-center gap-x-4 ml-12 max-lg:flex-col">
-        <div className="l border-black flex flex-col mt-36 max-md:px-4 ">
-          <div className="top flex flex-row justify-around w-[800px] max-md:w-[360px] max-md:flex max-md:flex-col ">
+      <div className="flex bg-[#fbfcff] flex-row justify-center gap-x-4 ml-12  max-lg:flex-col max-md:ml-0  ">
+        <div className="l border-black flex flex-col mt-36 max-md:px-4  max-md:mt-12">
+          <div className="top max-md:px-12 flex flex-row justify-around w-[800px] max-md:w-[350px] max-md:flex max-md:flex-col  ">
             <div className="top1 max-md:flex max-md:flex-col max-md:justify-center">
               <h3 className="font-bold"> Using Good Quality Materials</h3>
               <br />
@@ -78,8 +78,8 @@ export default function Products() {
               </p>
             </div>
           </div>
-          <div className="flex flex-row justify-around w-[800px] max-md:w-[360px]  mt-20 max-md:flex max-md:flex-col max-md:mt-6">
-            <div className="l1 ">
+          <div className="flex flex-row justify-around w-[800px] max-md:w-[360px]  mt-20 max-md:flex max-md:flex-col max-md:mt-6 max-md:px-4">
+            <div className="l1 max-md:px-6">
               <strong className=""> Using Good Quality Materials</strong>
               <br />
               <p className="text-justify mt-4">
@@ -87,7 +87,7 @@ export default function Products() {
                 <br /> consectetur adipiscing elit.
               </p>
             </div>
-            <div className="l2 max-md:mt-6">
+            <div className="l2 max-md:mt-6 max-md:px-6">
               <strong className=""> Using Good Quality Materials</strong>
               <br />
               <p className="text-justify mt-4">
@@ -100,13 +100,13 @@ export default function Products() {
         <div className="r mt-12 w-1/2 flex flex-row justify-center items-center  max-lg:w-full max-md:flex max-md:flex-col">
           <Image src="/feature.webp" alt="img" width={340} height={400}></Image>
           <div className="flex flex-col justify-center ml-8 max-md:ml-2 ">
-            <p className="text-justify max-md:mt-6 ">
+            <p className="text-justify max-md:mt-6 max-md:px-4">
               This piece is ethically crafted in our small family-owned workshop
               in Peru with unmatched attention to detail and care. The Natural
               color is the actual natural color of the fiber, undyed and 100%
               traceable.
             </p>
-            <button className="bg-black  w-56 tracking-widest rounded-sm mt-2 max-md:mt-4 h-12 text-white">
+            <button className="bg-black max-md:ml-4  w-56 tracking-widest rounded-sm mt-2 max-md:mt-4 h-12 text-white">
              <Link href="/all"> See All Products</Link>
             </button>
           </div>

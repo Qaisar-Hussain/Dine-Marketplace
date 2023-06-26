@@ -153,7 +153,7 @@ export default function Example() {
                   All Products
                 </Link>
               </div>
-              <div className="py-6 border-lime-200 border-2">
+              <div className="py-6 border-lime-200">
                 <Link
                   href="pages/cart"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
